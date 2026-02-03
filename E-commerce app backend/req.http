@@ -1,0 +1,32 @@
+###create product req
+GET http://localhost:4000/product-api/products
+
+
+###
+POST http://localhost:4000/product-api/products
+Content-Type: application/json
+
+{
+    "productName": "TV",
+    "price": 50000,
+    "brand": "Sony"
+}
+###create user req
+GET http://localhost:4000/user-api/users
+
+###
+POST http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+    "userName": "lenti",
+    "email": "lenti@example.com",
+    "password": "lenti003"
+}
+
+
+###REQ to add product to cart
+PUT http://localhost:4000/user-api/users/user-cart/userid/6980e798f301f7c66c20b39f/productid/6980e77bf301f7c66c20b39c
+
+###
+GET http://localhost:4000/user-api/users/user-cart/userid/6980e798f301f7c66c20b39f

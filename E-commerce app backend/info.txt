@@ -1,0 +1,114 @@
+Today's topics
+
+-> projections
+->unique property
+->saving password
+->authentication
+->publice and protected routes
+
+====================================
+
+projection:
+we can change what to project when a http request is sent
+------------------------------
+unique propert:
+usernames are unique because no 2 usernames are same
+-------------------------------------------------
+saving password:
+we have 2 techniques to save pass and protect that password
+-> hashing (hashing is done n number of times so that it is very difficult to know the password)
+   it has 1-25 cost factors: each cost factor is each layer
+   10-15 is fine because 20-25 cost factor will take upto 7 seconds to hash the password
+    he cannot convert the hashing into text, but we can check 
+    like, we can check by entering the pass, we get a hash, if original hash and present hash is same, the password is correct
+
+
+
+->encryption (not 100% safe)
+the password will be hidden by a key
+the key is used to get the password again
+so if someone get the key, he or she can the password
+----------------------------------------------------------------
+authentication
+->3 cases:
+1- password not there
+2- expired pass
+3- valid pass
+==============================================================
+
+every api has 2 routes
+1-> public routes
+2-> protected routes
+
+public routes can be accessed by any users 
+protected routes can be accessed by only "authenticated" users
+
+==================================================================
+
+authentication means submitting credentials and getting token
+it is same as pay the amount and get the ticket
+once the ticket is recieved by the user, then he is an authenticated user
+===========================================================================
+
+STEPS FOR USER AUNTHENTICATION:-
+
+1. After receciving user credentials object, api verifies the usernames
+2.if username is matched, compare the password
+3.if passwords are matched, it generateds an encrypted token
+4. finally, it sent the token in response back to the client
+====================================================================
+JSON WEB token
+
+once the user credentialsare verified, then the login route creates a jwt token. (jwt-> json web token)
+============================================================
+
+Storage of token in browser
+
+browser has 3 storage locations
+local storage
+session storage
+COOKIES
+
+Local Storage & session storage content can be accessible by js of the browser.
+Normal cookie can also be acessible by js of the brownser
+"HttpOnly" cookies cannot be accessible by the js of the browser. it can only be accesible by server
+so this is the safest place to store JWT token asfter yser authentication
+============================================================
+Making authenticated requests
+
+1. when client application makes request after sucessfull login, the HttpOnly cookie will be attached to every request automatically
+2.The middleware in express can extract the cookie from request using cookie-parser module.
+
+
+=========================================================================================================
+instead about copying the value of a product to cart, we need to refer the product in cart as the value of product will change for every frequent times
+
+
+Embedding document is something where value of an object is copied
+Reference document is something where value of an object is Refered.
+
+=======================================================
+
+populate method
+
+The populate method is used in MongoDB/Mongoose to replace a reference (ObjectId) with the actual document data from another collection.
+
+When you use reference documents (storing only ObjectIds), you need populate() to fetch the actual data.
+
+Syntax:
+Model.findById(id).populate('fieldName')
+
+Example:
+If a Cart has productId references, populate will replace those IDs with full product details.
+
+Cart.findById(cartId).populate('products')
+This will return the cart with complete product information instead of just IDs.
+
+You can also populate multiple fields:
+Cart.findById(cartId).populate('products').populate('user')
+
+Benefits:
+-> Avoids data duplication (reference approach)
+-> Fetches related data when needed
+-> Keeps database normalized
+-> Reduces storage space compared to embedding
