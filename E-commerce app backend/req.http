@@ -20,13 +20,13 @@ Content-Type: application/json
 
 {
     "userName": "lenti",
-    "email": "lenti@example.com",
+    "email": "lenti@gmail.com",
     "password": "lenti003"
 }
 
 
 ###REQ to add product to cart
-PUT http://localhost:4000/user-api/users/user-cart/userid/6980e798f301f7c66c20b39f/productid/6980e77bf301f7c66c20b39c
+PUT http://localhost:4000/user-api/users/user-cart/userid/69818feb90ba432766489891/productid/6980e77bf301f7c66c20b39c
 
 ###
-GET http://localhost:4000/user-api/users/user-cart/userid/6980e798f301f7c66c20b39f
+GET http://localhost:4000/user-api/users/user-cart/userid/69818feb90ba432766489891
